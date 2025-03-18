@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career210</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        #banner {
+            height: 360px;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'nav.html' %}
+    <div class="container">
+        <h1 class="text-center mb-3" style="color:blueviolet">Career210</h1>
+        <img id="banner" src="static/banner2.jpg" class="img-fluid">
+        <h2 class="text-center mt-2 mb-4" style="color:blueviolet">About Career210</h2>
+        <p class="lead">I developed Career210, a web application using Python (with Flask). This platform allows users to browse job listings and apply for jobs easily. It features an intuitive user interface built with HTML, CSS, and Bootstrap, ensuring a smooth experience.
+   The backend handles job data efficiently, and dynamic content rendering is managed through Flask templates. This project showcases my skills in web development, Python programming, and template-based UI design — making it a practical solution for job seekers.</p>
+        <h2 class="text-center mt-2 "style="color:blueviolet">Job Openings</h2>
+        <div>
+            {% for job in jobs %}
+                {% include 'jobss.html' %}
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="mailto:career210@gmail.com?subject=Questions%20and%20Feedback&body=Name%20-%0A%0AQuestions%20-%0A%0AFeedback%20-" class="btn btn-primary">Contact Us</a>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+</body>
+
+</html>
