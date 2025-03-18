@@ -1,44 +1,21 @@
 from flask import Flask, render_template
+from database import engine
+from sqlalchemy import text
 
 app = Flask(__name__)
 
 #adding dummy data
 
-Jobs = [
-    {
-        'id': 1,
-        'title': 'Data Analyst',
-        'location': 'Raipur, India',
-        'salary': '10,000,000'
-    },
-    {
-        'id': 2,
-        'title': 'Software Engineer',
-        'location': 'Bangalore, India',
-        'salary': '20,000,000'
-    },
-    {
-        'id': 3,
-        'title': 'Python Developer',
-        'location': 'Remote',
-        'salary': '12,000,000'
-    },
-    {
-        'id': 4,
-        'title': 'AI Engineer',
-        'location': 'Gurugram, India',
-        'salary': '30,000,000'
-    },
-    {
-        'id': 5,
-        'title': 'Web Developer',
-        'location': 'Remote',
-        'salary': '5,000,000'
-    }
-]
+def load_job():
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT * FROM jobs"))
+
+        Jobs = [dict(row._mapping) for row in result]
+        return Jobs
 
 @app.route("/")
 def hello_world():
+    Jobs = load_job()
     return render_template('home.html', jobs = Jobs)
 
 if __name__ == "__main__":
