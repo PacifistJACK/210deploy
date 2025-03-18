@@ -1,3 +1,3 @@
 # career-website
 
-visit live website(in progress) - https://jadu-career-website.onrender.com/
+visit live website(in progress) - https://career210.onrender.com
