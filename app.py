@@ -1,22 +1,21 @@
-from flask import Flask, render_template
-from database import engine
-from sqlalchemy import text
+from flask import Flask, render_template, jsonify
+from database import load_jobs, load_job_by_id
 
 app = Flask(__name__)
 
-#adding dummy data
-
-def load_job():
-    with engine.connect() as conn:
-        result = conn.execute(text("SELECT * FROM jobs"))
-
-        Jobs = [dict(row._mapping) for row in result]
-        return Jobs
-
+# Homepage route
 @app.route("/")
-def hello_world():
-    Jobs = load_job()
-    return render_template('home.html', jobs = Jobs)
+def home():
+    jobs = load_jobs()
+    return render_template('home.html', jobs=jobs)
+
+# Job details route
+@app.route("/job/<int:id>")
+def show_job(id):
+    job = load_job_by_id(id)
+    if job:
+        return jsonify(job)
+    return jsonify({"error": "Job not found"}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
