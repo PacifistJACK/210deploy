@@ -14,8 +14,9 @@ def home():
 def show_job(id):
     job = load_job_by_id(id)
     if job:
-        return jsonify(job)
-    return jsonify({"error": "Job not found"}), 404
+        return render_template('jobpg.html',job=job)
+    else:
+        return render_template('not.html'),404
 
 if __name__ == "__main__":
     app.run(debug=True)

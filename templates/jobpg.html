@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ job.title }}</title>
+    {% include 'bootstrap.html' %}
+</head>
+
+<body>
+
+    {% include 'nav.html' %}
+
+    <div class="container mt-5 mb-4">
+        <div class="card shadow-lg mt-5 p-4">
+            <h3 class="text-center" style="color: rgb(255, 0, 221);">{{ job.title }}</h3>
+            <p class="text-center text-muted fs-5">{{ job.location }}</p>
+
+            <h4 class="mt-3" style="color:rgb(212, 0, 255)">Responsibility</h4>
+            <p class="fs-6">{{ job.responiblites }}</p>
+
+            <h4 class="mt-3" style="color:rgb(212, 0, 255)">Requirements</h4>
+            <p class="fs-6">{{ job.requirement }}</p>
+
+            <h4 class="mt-3" style="color:rgb(212, 0, 255)">Salary</h4>
+            <p class="fw-bold text-success fs-4">{{ job.currency }}{{ job.salary }}</p>
+
+            <div class="text-center mt-4">
+                <button class="btn btn-primary btn-lg px-5">Apply Now</button>
+            </div>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>
