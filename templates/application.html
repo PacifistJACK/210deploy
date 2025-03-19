@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+    {% include 'bootstrap.html' %}
+</head>
+<body>
+    <div class="container mt-5 mb-4">
+        <div class="card shadow-lg mt-5 p-4">
+            <h2 class="text-center" style="color: rgb(212, 0, 255) ;">Apply for Job {{ job['title'] }}</h2>
+            <form action="/submit_application" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="name" class="form-label fw-bold">Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-bold">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="linkedin" class="form-label fw-bold">LinkedIn URL</label>
+                    <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="linkedin.com/xyz" required>
+                </div>
+                <div class="mb-3">
+                    <label for="education" class="form-label fw-bold">Education</label>
+                    <textarea class="form-control" id="education" name="education" rows="3" placeholder="Enter your education details" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exprience" class="form-label fw-bold">Work Exprience</label>
+                    <textarea class="form-control" id="experience" name="experience" rows="4" placeholder="Describe your work experience" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="resume" class="form-label fw-bold">Resume URL</label>
+                    <input type="text" class="form-control" id="resume" name="resume" placeholder="docs.google.com/document/resume" required>
+                </div>
+                <!-- <div class="mb-3">
+                    <label for="resume" class="form-label fw-bold">Upload Resume</label>
+                    <input type="file" class="form-control" id="resume" name="resume" required>
+                </div> -->
+                <div class="text-center">
+                    <button type="submit"class="btn btn-success">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>  
+</body>
+</html>

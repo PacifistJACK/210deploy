@@ -1,5 +1,5 @@
-from flask import Flask, render_template, jsonify
-from database import load_jobs, load_job_by_id
+from flask import Flask, render_template, redirect, url_for, request
+from database import load_jobs, load_job_by_id, add_application
 
 app = Flask(__name__)
 
@@ -14,9 +14,31 @@ def home():
 def show_job(id):
     job = load_job_by_id(id)
     if job:
-        return render_template('jobpg.html',job=job)
+        return render_template('jobpg.html', job=job)
     else:
-        return render_template('not.html'),404
+        return render_template('not.html'), 404
+
+# Application form route
+@app.route("/job/<int:id>/application")
+def apply(id):
+    job = load_job_by_id(id)
+    if job:
+        return render_template('application.html', job=job)
+    else:
+        return render_template('not.html'), 404
+
+# Submit application route (fixed)
+@app.route("/job/<int:id>/submit_application", methods=["POST"])
+def submit_application(id):
+    job = load_job_by_id(id)
+    if not job:
+        return render_template('not.html'), 404
+
+    data = request.form
+    add_application(id, data)
+    
+    return render_template('application_submitted.html', application=data)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
