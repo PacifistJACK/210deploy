@@ -30,14 +30,14 @@ def apply(id):
 # Submit application route (fixed)
 @app.route("/job/<int:id>/submit_application", methods=["POST"])
 def submit_application(id):
+    data = request.form
     job = load_job_by_id(id)
-    if not job:
+    if job:
+        add_application(id, data)
+        return render_template('application_submitted.html', application=data)
+    else:
         return render_template('not.html'), 404
 
-    data = request.form
-    add_application(id, data)
-    
-    return render_template('application_submitted.html', application=data)
 
 
 if __name__ == "__main__":

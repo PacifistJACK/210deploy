@@ -10,7 +10,8 @@
     <div class="container mt-5 mb-4">
         <div class="card shadow-lg mt-5 p-4">
             <h2 class="text-center" style="color: rgb(212, 0, 255) ;">Apply for Job {{ job['title'] }}</h2>
-            <form action="/submit_application" method="post" class="needs-validation" novalidate>
+            <form action="{{ url_for('submit_application', id=job['id']) }}" method="post" class="needs-validation" novalidate>
+
                 <div class="mb-3">
                     <label for="name" class="form-label fw-bold">Full Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
