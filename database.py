@@ -5,18 +5,20 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Database connection setup
+# Get database connection link from environment variables
 db_connection_link = os.getenv("DB_CONNECTION_LINK")
-ca_cert_path = os.getenv("CA_CERT_PATH")
 
-# Correct SSL configuration in connect_args
+# Path to CA certificate stored as a secret file in Render
+ca_cert_path = "/etc/secrets/ca.pem"  
+
+# Check if CA certificate file exists
+if not os.path.exists(ca_cert_path):
+    raise ValueError(f"CA certificate file not found at {ca_cert_path}")
+
+# Create database engine with SSL using the CA certificate file
 engine = create_engine(
     db_connection_link,
-    connect_args={
-        "ssl": {
-            "ca": ca_cert_path
-        }
-    }
+    connect_args={"ssl": {"ca": ca_cert_path}}  # Pass the file path
 )
 
 # Function to load all jobs into a list of dictionaries
