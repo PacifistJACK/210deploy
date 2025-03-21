@@ -11,15 +11,12 @@ ca_cert_path = os.getenv("CA_CERT_PATH")
 
 # Correct SSL configuration in connect_args
 engine = create_engine(
-<<<<<<< HEAD
     db_connection_link,
     connect_args={
         "ssl": {
             "ca": ca_cert_path
         }
     }
-=======
->>>>>>> 4fe97459a5ae994e45156b541c54e8f395608a61
 )
 
 # Function to load all jobs into a list of dictionaries
