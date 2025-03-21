@@ -1,6 +1,7 @@
 import os
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
+import re
 
 # Load environment variables
 load_dotenv()
@@ -42,10 +43,10 @@ def load_job_by_id(job_id):
         if row:
             job = dict(row._mapping)
             
-            # Ensure responsibilities and requirements are split correctly
-            job['responsibilities'] = job['responsibilities'].replace('. ', '.\n')
-            job['requirements'] = job['requirements'].replace('. ', '.\n')
-            
+            # Properly format responsibilities & requirements
+            job['responsibities'] = "\n".join(filter(None, re.split(r"\.\s+|\n+", job['responsibities'])))
+            job['requirements'] = "\n".join(filter(None, re.split(r"\.\s+|\n+", job['requirements'])))
+
             return job
         return None
 
