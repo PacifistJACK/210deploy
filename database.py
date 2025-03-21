@@ -7,6 +7,7 @@ load_dotenv()
 
 # Get database connection link from environment variables
 db_connection_link = os.getenv("DB_CONNECTION_LINK")
+db_connection_link = db_connection_link.strip('"')
 
 # Path to CA certificate stored as a secret file in Render
 ca_cert_path = "/etc/secrets/ca.pem"  
