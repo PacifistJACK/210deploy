@@ -20,8 +20,9 @@ Career210 is a **dynamic job portal** that enables employers to list job opening
 🔹 Clicking the **"Apply"** button on any job redirects to the job details page.  
 
 📌 **Screenshot:**  
-![Home Page1](![image](https://github.com/user-attachments/assets/ef79193b-1eb6-47ca-a0cd-c1f2c4ec83e3)
-)  
+![image](https://github.com/user-attachments/assets/3314283f-d9af-4eeb-940f-3620fb4447e5)
+
+
  ![Home Page2](https://media.discordapp.net/attachments/1064562719975542874/1352513167137439744/Screenshot_2025-03-21_104823.png?ex=67de498b&is=67dcf80b&hm=f72c7219232409f71eba1d5f455de85a37ff2960c43bd275470bc4430f8c0ed8&=&format=webp&quality=lossless&width=1730&height=846)
 
  
@@ -30,21 +31,22 @@ Career210 is a **dynamic job portal** that enables employers to list job opening
 🔹 Clicking **"Apply Now"** redirects to the application form.  
 
 📌 **Screenshot:**  
-![Job Details Page]([insert-image-here](https://media.discordapp.net/attachments/1064562719975542874/1352513167539834931/Screenshot_2025-03-21_104855.png?ex=67de498b&is=67dcf80b&hm=f185b8b3863d46ea36dfa8bf8fea4b9a337c739be3e64bfd05888ebfadd00d97&=&format=webp&quality=lossless&width=1730&height=796))  
+![image](https://github.com/user-attachments/assets/e0d8cb11-eb4d-43fe-a2eb-13ca76ef217f)
+
 
 ### 3️⃣ **Application Form** – `/job/<job_id>/application`  
 🔹 Users fill in required details (Name, Email, LinkedIn, Experience, etc.).  
 🔹 After submission, users are redirected to confirmation.  
 
 📌 **Screenshot:**  
-![Application Form]([![image](https://github.com/user-attachments/assets/543f799e-e2c7-42e2-bd54-5f8b920bda03](https://media.discordapp.net/attachments/1064562719975542874/1352513124128788521/Screenshot_2025-03-21_104943.png?ex=67de4981&is=67dcf801&hm=d19256b3d1529d9c8436ad22ba8fc18355f14d317abba11514b7e9c7f10bfd9d&=&format=webp&quality=lossless&width=1744&height=859))
-)  
+![image](https://github.com/user-attachments/assets/d39ec374-9a75-414c-b21c-8e2388ae6df4)
 
 ### 4️⃣ **Application Submission Confirmation** – `/job/<job_id>/submit_application`  
 🔹 Displays a message confirming the application submission.  
 
 📌 **Screenshot:**  
-![Application Submitted]([insert-image-here](https://media.discordapp.net/attachments/1064562719975542874/1352514470957551708/Screenshot_2025-03-21_105914.png?ex=67de4ac2&is=67dcf942&hm=eca39ee3914fcd9d3172e7e40dae96b38ee4597670c9d70401587f7ef1814ab7&=&format=webp&quality=lossless&width=1860&height=853))  
+![image](https://github.com/user-attachments/assets/f6ae31e0-4bcc-4d2e-afeb-af43a517ada5)
+  
 
 ---
 
