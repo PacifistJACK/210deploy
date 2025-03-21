@@ -39,7 +39,16 @@ def load_job_by_id(job_id):
             {"val": job_id}
         )
         row = result.fetchone()
-        return dict(row._mapping) if row else None
+        if row:
+            job = dict(row._mapping)
+            
+            # Ensure responsibilities and requirements are split correctly
+            job['responsibilities'] = job['responsibilities'].replace('. ', '.\n')
+            job['requirements'] = job['requirements'].replace('. ', '.\n')
+            
+            return job
+        return None
+
 
 # Function to add a job application
 def add_application(job_id, application):
