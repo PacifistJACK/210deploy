@@ -1,14 +1,20 @@
+import os
 from sqlalchemy import create_engine, text
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Database connection setup
-db_connection_link = "mysql://avnadmin:AVNS_e2hoDjCqTFYQ0_LCs6u@mysql-3c88c130-careerappp.l.aivencloud.com:25216/defaultdb"
+db_connection_link = os.getenv("DB_CONNECTION_LINK")
+ca_cert_path = os.getenv("CA_CERT_PATH")
 
 # Correct SSL configuration in connect_args
 engine = create_engine(
     db_connection_link,
     connect_args={
         "ssl": {
-            "ca": r"D:\maderchodh\kare\210deploy\ca.pem"  # Raw string to avoid escape issues
+            "ca": ca_cert_path
         }
     }
 )
@@ -32,6 +38,7 @@ def load_job_by_id(job_id):
         row = result.fetchone()
         return dict(row._mapping) if row else None
 
+# Function to add a job application
 def add_application(job_id, application):
     with engine.connect() as conn:
         query = text("""
