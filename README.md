@@ -23,7 +23,8 @@ Career210 is a **dynamic job portal** that enables employers to list job opening
 ![image](https://github.com/user-attachments/assets/3314283f-d9af-4eeb-940f-3620fb4447e5)
 
 
- ![Home Page2](https://media.discordapp.net/attachments/1064562719975542874/1352513167137439744/Screenshot_2025-03-21_104823.png?ex=67de498b&is=67dcf80b&hm=f72c7219232409f71eba1d5f455de85a37ff2960c43bd275470bc4430f8c0ed8&=&format=webp&quality=lossless&width=1730&height=846)
+ ![Home Page2](![image](https://github.com/user-attachments/assets/e65d3a87-ebad-4eff-8143-e46f1883e3c4)
+)
 
  
 ### 2️⃣ **Job Details Page** – `/job/<job_id>`  
